@@ -1,22 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define fast ios::sync_with_stdio(0);cin.tie(0);
+#define input freopen("square.in", "r", stdin); freopen("square.out", "w", stdout);
 
-struct Rect
+int main() 
 {
-    int x1, y1, x2, y2;
-};
+    fast 
+    //input
 
-int main ()
-{
-    // freopen("square.in", "r", stdin);
-    // freopen("square.out", "w", stdout);
+    vector<int> a(4);
+    vector<int> b(4);
+    for (int i = 0; i < 4; i++) cin >> a[i];
+    for (int i = 0; i < 4; i++) cin >> b[i];
 
-    Rect a, b;
-    cin >> a.x1 >> a.y1 >> a.x2 >> a.y2;
-    cin >> b.x1 >> b.y1 >> b.x2 >> b.y2; 
-    
-    int sideLength1 = max(a.x2, b.x2)-min(a.x1, b.x1);
-    int sideLength2 = max(b.y2, a.y2)-min(b.y1, a.y1);
-    int sideLength = max(sideLength1, sideLength2);
-    cout << pow(sideLength, 2.0);
+    int n = max(a[0],max(b[0],max(a[2],b[2]))) - min(a[0],min(b[0],min(a[2],b[2])));
+    int m = max(a[1],max(b[1],max(a[3],b[3]))) - min(a[1],min(b[1],min(a[3],b[3])));
+    cout << pow(max(n,m), 2);
 }
